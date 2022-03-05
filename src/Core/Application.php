@@ -2,6 +2,8 @@
 
 namespace Vroom\Core;
 
+use Vroom\Routing\Router;
+
 class Application
 {
     public Request $request;

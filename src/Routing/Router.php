@@ -1,27 +1,23 @@
 <?php
 
-namespace Vroom\Core;
+namespace Vroom\Routing;
+
+use Vroom\Core\Request;
 
 class Router
 {
     public Request $request;
-    public array $routes = [];
 
     public function __construct(Request $request)
     {
         $this->request = $request;
     }
 
-    public function get($path, $callback)
-    {
-        $this->routes['get'][$path] = $callback;    
-    }
-
     public function resolve()
     {
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
-        $callback = $this->routes[$method][$path] ?? false;
+        $callback = Route::$routes[$method][$path] ?? false;
 
         if ($callback === false) {
             echo "Not Found";
