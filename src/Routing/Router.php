@@ -2,6 +2,7 @@
 
 namespace Vroom\Routing;
 
+use Vroom\Core\Application;
 use Vroom\Core\Request;
 
 class Router
@@ -19,7 +20,7 @@ class Router
 
     private function setRoutesPath()
     {
-        $this->routesPath = $_SERVER['DOCUMENT_ROOT'].'/../routes.php';
+        $this->routesPath = Application::$ROOT_PATH.'/../routes.php';
     }
 
     private function loadRoutes()
