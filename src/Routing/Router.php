@@ -18,7 +18,7 @@ class Router
 
     private function setRoutesPath()
     {
-        $this->routesPath = base_path('routes.php');
+        $this->routesPath = routes_path('web.php');
     }
 
     public function resolve()

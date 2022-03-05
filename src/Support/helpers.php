@@ -66,3 +66,16 @@ if (! function_exists('env')) {
         return Env::get($key, $default);
     }
 }
+
+if (! function_exists('routes_path')) {
+    function routes_path($file = null) {
+        $config =  $_SERVER['DOCUMENT_ROOT']."/../routes/";
+
+        if (! $file) {
+            return $config;
+        }
+        
+        return file_exists($config.$file) ? require $config.$file : null;
+
+    }
+}
