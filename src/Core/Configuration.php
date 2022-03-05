@@ -18,8 +18,6 @@ class Configuration
 
     public static function getConfigFile($name) 
     {
-        return file_exists( config_path($name.'.php'))
-            ? require config_path($name.'.php')
-            : false;
+        return config_path($name.'.php');
     }
 }

@@ -12,6 +12,7 @@ class Application
     public Request $request;
     public Router $router;
     public Configuration $config;
+    public Database $database;
 
     public function __construct() 
     {
@@ -21,6 +22,7 @@ class Application
         $this->request = new Request();
         $this->router = new Router($this->request);
         $this->config = new Configuration();
+        $this->database = new Database();
     }
 
     public function run()

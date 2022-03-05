@@ -16,9 +16,9 @@ if (! function_exists('base_path')) {
 }
 
 if (! function_exists('config')) {
-    function config($path) {
+    function config(string $path) {
         $keys = explode('.', $path);
-
+        
         $file_name = array_shift($keys);
         
         if (! $configFile = Configuration::getConfigFile($file_name)) {
