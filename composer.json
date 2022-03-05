@@ -3,12 +3,14 @@
     "license": "MIT",
     "autoload": {
         "files": [
-            "src/helpers/helpers.php"
+            "src/Support/helpers.php"
         ],
         "psr-4": {
             "Vroom\\": "src/",
             "App\\": "app/"
         }
     },
-    "require": {}
+    "require": {
+        "vlucas/phpdotenv": "^5.4"
+    }
 }

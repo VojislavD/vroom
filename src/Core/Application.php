@@ -3,6 +3,7 @@
 namespace Vroom\Core;
 
 use Vroom\Routing\Router;
+use Vroom\Support\Env;
 
 class Application
 {
@@ -17,6 +18,13 @@ class Application
         
         $this->request = new Request();
         $this->router = new Router($this->request);
+
+        $this->initializeDotenv();
+    }
+
+    private function initializeDotenv()
+    {
+        new Env();
     }
 
     public function run()
