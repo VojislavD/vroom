@@ -2,6 +2,9 @@
     "name": "vojislavd/vroom",
     "license": "MIT",
     "autoload": {
+        "files": [
+            "src/helpers/helpers.php"
+        ],
         "psr-4": {
             "Vroom\\": "src/"
         }
