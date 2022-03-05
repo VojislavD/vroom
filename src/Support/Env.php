@@ -14,7 +14,6 @@ class Env
 
     public static function get($key, $default = null)
     {
-        dd($_ENV['TEST']);
-        return $key ? $_ENV[$key] : $_ENV[$default];
+        return $key && $_ENV[$key] ? $_ENV[$key] : $default;
     }
 }
