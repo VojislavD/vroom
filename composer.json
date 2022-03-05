@@ -6,7 +6,8 @@
             "src/helpers/helpers.php"
         ],
         "psr-4": {
-            "Vroom\\": "src/"
+            "Vroom\\": "src/",
+            "App\\": "app/"
         }
     },
     "require": {}

@@ -4,15 +4,10 @@ namespace Vroom\Routing;
 
 class Route
 {
-    public static array $routes = [];
+    use RegisterRoutesTrait;
 
     public static function get($path, $callback)
     {
-        self::registerNewRoute('get', $path, $callback);
-    }
-
-    private static function registerNewRoute($method, $path, $callback)
-    {
-        self::$routes[$method][$path] = $callback;
+        self::registerRoute('get', $path, $callback);
     }
 }
