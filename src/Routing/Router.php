@@ -7,13 +7,19 @@ use Vroom\Core\Request;
 class Router
 {
     public Request $request;
-    private $routesPath = __DIR__.'/../../routes.php';
+    private $routesPath;
 
     public function __construct(Request $request)
     {
         $this->request = $request;
+        $this->setRoutesPath();
 
         $this->loadRoutes();
+    }
+
+    private function setRoutesPath()
+    {
+        $this->routesPath = $_SERVER['DOCUMENT_ROOT'].'/../routes.php';
     }
 
     private function loadRoutes()
