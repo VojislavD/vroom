@@ -14,18 +14,11 @@ class Router
     {
         $this->request = $request;
         $this->setRoutesPath();
-
-        $this->loadRoutes();
     }
 
     private function setRoutesPath()
     {
-        $this->routesPath = Application::$ROOT_PATH.'/../routes.php';
-    }
-
-    private function loadRoutes()
-    {
-        require $this->routesPath;
+        $this->routesPath = base_path('routes.php');
     }
 
     public function resolve()
