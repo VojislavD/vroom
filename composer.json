@@ -1,0 +1,10 @@
+{
+    "name": "vojislavd/vroom",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Vojislavd\\Vroom\\": "src/"
+        }
+    },
+    "require": {}
+}
