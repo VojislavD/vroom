@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-class HomeController
+use Vroom\Core\Controller;
+
+class HomeController extends Controller
 {
     public function home()
     {
-        return 'Home';
-    }
-
-    public function hello()
-    {
-        return 'Hello World';
+        return $this->view('home');
     }
 }
