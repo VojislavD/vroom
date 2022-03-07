@@ -1,6 +1,6 @@
 <?php
 
-namespace Vroom\Core;
+namespace Vroom\Configuration;
 
 use Vroom\Support\Env;
 

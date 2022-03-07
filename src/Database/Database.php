@@ -1,6 +1,6 @@
 <?php
 
-namespace Vroom\Core;
+namespace Vroom\Database;
 
 use PDOException;
 

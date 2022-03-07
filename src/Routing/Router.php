@@ -2,8 +2,7 @@
 
 namespace Vroom\Routing;
 
-use Vroom\Core\Application;
-use Vroom\Core\Request;
+use Vroom\Request\Request;
 
 class Router
 {

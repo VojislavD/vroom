@@ -1,6 +1,6 @@
 <?php
 
-namespace Vroom\Core;
+namespace Vroom\Request;
 
 class Request
 {

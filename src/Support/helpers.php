@@ -1,6 +1,6 @@
 <?php
 
-use Vroom\Core\Configuration;
+use Vroom\Configuration\Configuration;
 use Vroom\Support\Env;
 
 if (! function_exists('base_path')) {

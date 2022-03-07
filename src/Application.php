@@ -1,7 +1,10 @@
 <?php
 
-namespace Vroom\Core;
+namespace Vroom;
 
+use Vroom\Configuration\Configuration;
+use Vroom\Database\Database;
+use Vroom\Request\Request;
 use Vroom\Routing\Router;
 
 class Application

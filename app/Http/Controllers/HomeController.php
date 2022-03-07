@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Vroom\Core\Controller;
+use Vroom\Controller\Controller;
 
 class HomeController extends Controller
 {

@@ -2,7 +2,7 @@
 
 namespace Vroom\Support;
 
-use Vroom\Core\Application;
+use Vroom\Application;
 
 class Env
 {

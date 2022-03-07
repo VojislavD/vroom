@@ -1,6 +1,6 @@
 <?php
 
-use Vroom\Core\Application;
+use Vroom\Application;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
