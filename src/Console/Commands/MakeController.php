@@ -6,6 +6,10 @@ use Vroom\Console\BaseConsole;
 
 class MakeController extends BaseConsole
 {
+    public string $command = 'make:controller';
+
+    public string $description = 'Create new controller';
+
     public string $controllerName;
 
     public function __construct(array $argv)
