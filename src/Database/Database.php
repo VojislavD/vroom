@@ -10,7 +10,7 @@ class Database
 {
     use SQLCommands;
 
-    private \PDO $pdo;
+    public \PDO $pdo;
     private string|null $host;
     private string|null $port;
     private string|null $database;
