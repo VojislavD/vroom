@@ -2,23 +2,26 @@
 
 namespace Vroom\Console;
 
+use Vroom\Console\Commands\Help;
 use Vroom\Console\Commands\Migrate;
 
-class Console
+class Console extends BaseConsole
 {
     public string $command;
 
     public function resolve($argv)
     {
+        $this->checkIfCommandPassed($argv);
+
         $this->command = $argv[1];
 
         if (! $this->commandExists()) {
             $this->log("Command $this->command does not exists.".PHP_EOL);
-            exit();
+            exit(1);
         }
 
         $this->resolveCommand();
-
+        exit(1);
     }
 
     private function commandExists()
@@ -26,23 +29,13 @@ class Console
         return in_array($this->command, $this->availableCommands());
     }
 
-    private function availableCommands()
-    {
-        return [
-            'migrate'
-        ];
-    }
-
     public function resolveCommand()
     {
         return match($this->command) {
+            '-h' => new Help(),
+            '--help' => new Help(),
             'migrate' => new Migrate(),
-            default => $this->log('Command could not be found.')
+            default => new Help()
         };
-    }
-
-    public function log($message)
-    {
-        echo $message;
     }
 }

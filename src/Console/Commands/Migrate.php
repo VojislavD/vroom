@@ -2,10 +2,10 @@
 
 namespace Vroom\Console\Commands;
 
-use Vroom\Application;
+use Vroom\Console\BaseConsole;
 use Vroom\Database\Database;
 
-class Migrate
+class Migrate extends BaseConsole
 {
     public function __construct()
     {
