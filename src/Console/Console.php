@@ -3,16 +3,19 @@
 namespace Vroom\Console;
 
 use Vroom\Console\Commands\Help;
+use Vroom\Console\Commands\MakeController;
 use Vroom\Console\Commands\Migrate;
 
 class Console extends BaseConsole
 {
     public string $command;
+    public array $argv;
 
     public function resolve($argv)
     {
         $this->checkIfCommandPassed($argv);
 
+        $this->argv = $argv;
         $this->command = $argv[1];
 
         if (! $this->commandExists()) {
@@ -35,6 +38,7 @@ class Console extends BaseConsole
             '-h' => new Help(),
             '--help' => new Help(),
             'migrate' => new Migrate(),
+            'make:controller' => new MakeController($this->argv),
             default => new Help()
         };
     }

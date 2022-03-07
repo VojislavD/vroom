@@ -11,13 +11,14 @@ class BaseConsole
         return [
             '-h',
             '--help',
-            'migrate'
+            'migrate',
+            'make:controller',
         ];
     }
 
     protected function log($message)
     {
-        echo $message;
+        echo $message.PHP_EOL;
     }
 
     protected function checkIfCommandPassed($argv)
@@ -26,5 +27,17 @@ class BaseConsole
             new Help();
             exit(1);
         }
+    }
+
+    protected function getStub($name)
+    {
+        $stub = __DIR__."/Commands/Stubs/$name.stub";
+
+        if (! file_exists($stub)) {
+            $this->log("Error");
+            exit(1);
+        }
+
+        return file_get_contents($stub);
     }
 }

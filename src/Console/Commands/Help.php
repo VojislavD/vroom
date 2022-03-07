@@ -10,7 +10,7 @@ class Help extends BaseConsole
     {
         $availableCommands = implode(PHP_EOL, $this->availableCommands());
 
-        $this->log('Available Commands:'.PHP_EOL);
-        $this->log($availableCommands.PHP_EOL);
+        $this->log('Available Commands:');
+        $this->log($availableCommands);
     }
 }

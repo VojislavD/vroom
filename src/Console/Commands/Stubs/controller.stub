@@ -1,0 +1,10 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Vroom\Controller\Controller;
+
+class {{ $class }} extends Controller
+{
+    
+}
