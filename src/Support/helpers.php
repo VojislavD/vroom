@@ -5,7 +5,13 @@ use Vroom\Support\Env;
 
 if (! function_exists('base_path')) {
     function base_path($file = null) {
-        $root =  $_SERVER['DOCUMENT_ROOT']."/../";
+        $docRoot = $_SERVER['DOCUMENT_ROOT'];
+
+        if ($docRoot) {
+            $root =  dirname($docRoot);
+        } else {
+            $root =  $_SERVER['PWD'];
+        }
 
         if (! $file) {
             return $root;
@@ -24,7 +30,7 @@ if (! function_exists('config')) {
         if (! $configFile = Configuration::getConfigFile($file_name)) {
             return null;
         }
-
+        
         $config = $configFile;
 
         foreach ($keys as $key) {
@@ -41,12 +47,18 @@ if (! function_exists('config')) {
 
 if (! function_exists('config_path')) {
     function config_path($file = null) {
-        $config =  $_SERVER['DOCUMENT_ROOT']."/../config/";
+        $docRoot = $_SERVER['DOCUMENT_ROOT'];
+
+        if ($docRoot) {
+            $config =  $docRoot."/../config/";
+        } else {
+            $config =  $_SERVER['PWD'].'/config/';
+        }
 
         if (! $file) {
             return $config;
-        }
-        
+        } 
+
         return file_exists($config.$file) ? require $config.$file : null;
 
     }

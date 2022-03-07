@@ -10,7 +10,7 @@ class Configuration
     {
         $this->initializeDotenv();
     }
-
+    
     private function initializeDotenv()
     {
         new Env();

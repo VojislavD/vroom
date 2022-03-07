@@ -8,7 +8,7 @@ class Env
 {
     public function __construct()
     {
-        $dotenv = \Dotenv\Dotenv::createImmutable(dirname(Application::$ROOT_PATH));
+        $dotenv = \Dotenv\Dotenv::createImmutable(base_path());
         $dotenv->load();
     }
 

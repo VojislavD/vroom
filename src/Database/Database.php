@@ -21,7 +21,7 @@ class Database
     {
         $this->connect();
     }
-
+    
     private function connect()
     {
         $this->getCredentials();
@@ -52,7 +52,7 @@ class Database
         $appliedMigrations = $this->getAppliedMigrations();
 
         $newMigrations = [];
-        $files = scandir(base_path().'./database/migrations');
+        $files = scandir(base_path().'/database/migrations');
         $toApplyMigrations = array_diff($files, $appliedMigrations);
 
         foreach ($toApplyMigrations as $migration) {
@@ -63,12 +63,16 @@ class Database
             require_once base_path().'/database/migrations/'.$migration;
             $className = pathinfo($migration, PATHINFO_FILENAME);
             $instance = new $className();
+            $this->log("Applying migration $migration");
             $instance->up();
+            $this->log("Applied migration $migration");
             $newMigrations[] = $migration;
         }
 
         if (!empty($newMigrations)) {
             $this->saveMigrations($newMigrations);
+        } else {
+            $this->log("All migrations are applied");
         }
     }
 
@@ -107,4 +111,9 @@ class Database
     {
         $this->pdo->exec($sql);
     }
+
+    protected function log($message)
+	{
+		echo '[' . date('Y-m-d H:i:s') . '] - ' . $message . PHP_EOL;
+	}
 }
