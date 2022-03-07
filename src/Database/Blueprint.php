@@ -30,4 +30,10 @@ class Blueprint
     {
         $this->columns[] = "$name TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP";
     }
+
+    public function timestamps()
+    {
+        $this->columns[] = "created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP";
+        $this->columns[] = "updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP";
+    }
 }

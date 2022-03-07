@@ -11,7 +11,7 @@ class m001_initial
             $table->foreignId('id');
             $table->string('name');
             $table->tinyInt('status');
-            $table->timestamp('created_at');
+            $table->timestamps();
         });
     }
 
