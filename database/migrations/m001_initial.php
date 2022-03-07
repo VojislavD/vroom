@@ -9,7 +9,7 @@ class m001_initial
     {
         Schema::create('users', function (Blueprint $table) {
             $table->foreignId('id');
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->tinyInt('status');
             $table->timestamps();
         });
