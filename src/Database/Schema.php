@@ -4,10 +4,12 @@ namespace Vroom\Database;
 
 class Schema
 {
-    public static function create(string $table, array $columns)
+    public static function create(string $table, $callable)
     {
-        $field = new Field($columns);
-        $params = $field->createQuery();
+        $blueprint = new Blueprint();
+        $callable($blueprint);
+
+        $params = $blueprint->createQuery();
 
         $sql = "CREATE TABLE $table ($params) ENGINE=INNODB;";
 

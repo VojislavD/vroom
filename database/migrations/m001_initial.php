@@ -1,35 +1,18 @@
 <?php
 
+use Vroom\Database\Blueprint;
 use Vroom\Database\Schema;
 
 class m001_initial
 {
     public function up()
     {
-        Schema::create('users', [
-            'id' => [
-                'type' => 'integer',
-                'auto_increment' => true,
-                'primary_key' => true
-            ],
-            'email' => [
-                'type' => 'varchar',
-            ],
-            'firstname' => [
-                'type' => 'varchar',
-            ],
-            'lastname' => [
-                'type' => 'varchar',
-            ],
-            'status' => [
-                'type' => 'tinyint',
-                'nullable' => true,
-            ],
-            'created_at' => [
-                'type' => 'timestamp',
-                'default' => 'current_timestamp'
-            ],
-        ]);
+        Schema::create('users', function (Blueprint $table) {
+            $table->foreignId('id');
+            $table->string('name');
+            $table->tinyInt('status');
+            $table->timestamp('created_at');
+        });
     }
 
     public function down()
