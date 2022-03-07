@@ -49,14 +49,41 @@ class Blueprint
 
     public function nullable()
     {
-        $column = end($this->columns);
+        $column = $this->getLastElement();
 
         $column = str_replace('NOT NULL', '', $column);
 
+        $this->pushBackToColumns($column);
+
+        return $this;
+    }
+
+    public function default($value)
+    {
+        $column = $this->getLastElement();
+
+        $defaultPosition = strpos($column, 'DEFAULT');
+
+        if ($defaultPosition) {
+            $column = substr($column, 0, $defaultPosition - 1);
+        }
+        
+        $column .= " DEFAULT $value";
+
+        $this->pushBackToColumns($column);
+
+        return $this;
+    }
+
+    private function getLastElement()
+    {
+        return end($this->columns);
+    }
+
+    private function pushBackToColumns($column)
+    {
         $elements = count($this->columns);
 
         $this->columns[$elements - 1] = $column;
-
-        return $this;
     }
 }
