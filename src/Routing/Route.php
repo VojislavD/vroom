@@ -10,4 +10,9 @@ class Route
     {
         self::registerRoute('get', $path, $callback);
     }
+
+    public static function post($path, $callback)
+    {
+        self::registerRoute('post', $path, $callback);
+    }
 }

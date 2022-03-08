@@ -8,5 +8,11 @@
 </head>
 <body>
     <h1>Home Page</h1>
+
+    <form action="/post" method="POST">
+        <input type="text" name="name">
+        <input type="text" name="email">
+        <button>Submit</button>
+    </form>
 </body>
 </html>

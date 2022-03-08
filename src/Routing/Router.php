@@ -23,7 +23,7 @@ class Router
     public function resolve()
     {
         $path = $this->request->getPath();
-        $method = $this->request->getMethod();
+        $method = $this->request->method();
         $callback = Route::$routes[$method][$path] ?? false;
 
         if ($callback === false) {
@@ -36,7 +36,7 @@ class Router
             $callback[0] = $controller;
         }
 
-        echo call_user_func($callback);
+        echo call_user_func($callback, $this->request);
     }
 
 }
