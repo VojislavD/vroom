@@ -14,6 +14,15 @@ class HomeController extends Controller
 
     public function post(Request $request)
     {
-        dd($request->body());
+        $validation = $request->validate([
+            'name' => ['required'],
+            'email' => ['required']
+        ]);
+
+        if (! $validation) {
+            return 'Validation Failed';
+        }
+
+        return 'Validation Passed';
     }
 }

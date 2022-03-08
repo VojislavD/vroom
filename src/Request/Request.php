@@ -2,8 +2,7 @@
 
 namespace Vroom\Request;
 
-use Dotenv\Parser\Value;
-use Vroom\Validation\Validate;
+use Vroom\Validation\Validation;
 
 class Request
 {
@@ -54,5 +53,12 @@ class Request
         }
 
         return $body;
+    }
+
+    public function validate(array $rules)
+    {
+        $validation = new Validation($this->body(), $rules);
+
+        return $validation->validate();
     }
 }
