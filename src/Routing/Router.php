@@ -3,15 +3,18 @@
 namespace Vroom\Routing;
 
 use Vroom\Request\Request;
+use Vroom\Response\Response;
 
 class Router
 {
     public Request $request;
+    public Response $response;
     private $routesPath;
 
     public function __construct(Request $request)
     {
         $this->request = $request;
+        $this->response = new Response();
         $this->setRoutesPath();
     }
 
@@ -36,7 +39,7 @@ class Router
             $callback[0] = $controller;
         }
 
-        echo call_user_func($callback, $this->request);
+        echo call_user_func($callback, $this->request, $this->response);
     }
 
 }

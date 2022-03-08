@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Vroom\Controller\Controller;
 use Vroom\Request\Request;
+use Vroom\Response\Response;
 
 class HomeController extends Controller
 {
@@ -12,7 +13,7 @@ class HomeController extends Controller
         return $this->view('home');
     }
 
-    public function post(Request $request)
+    public function post(Request $request, Response $response)
     {
         $validation = $request->validate([
             'name' => ['required'],
@@ -20,7 +21,7 @@ class HomeController extends Controller
         ]);
 
         if (! $validation) {
-            return 'Validation Failed';
+            return $response->redirect('/');
         }
 
         return 'Validation Passed';
